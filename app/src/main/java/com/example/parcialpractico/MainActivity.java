@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnLogin;
     EditText textUser, textPassword;
     TextView tryText;
+    Boolean beLogin = false;
     RequestQueue requestQueue;
     private static final String URL1 = "https://628963f9e5e5a9ad3218cb51.mockapi.io/api/v1/users";
 
@@ -43,9 +44,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), textUser.getText().toString(), Toast.LENGTH_SHORT).show();
                 ArrayRequest();
-                //Intent ir = new Intent(getBaseContext(), Home.class);
-                //ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
-                //startActivity(ir);
+                if(beLogin){
+                    Intent ir = new Intent(getBaseContext(), SecondHome.class);
+                    ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(ir);
+                }
+
             }
         });
 
@@ -62,11 +66,13 @@ public class MainActivity extends AppCompatActivity {
                         for(int i = 0; i<response.length(); i++){
                             try {
                                 JSONObject jsonObject = new JSONObject(response.get(i).toString());
-                                if(textUser.getText().equals(jsonObject.getString("name")) && textPassword.getText().equals(jsonObject.getString("password"))){
+                                if(textUser.getText().toString().equals(jsonObject.getString("name")) && textPassword.getText().toString().equals(jsonObject.getString("password"))){
                                     tryText.setText("Iniciar sesion ok!");
+                                    beLogin = true;
+                                    break;
                                 }else{
                                     tryText.setText("crendenciales no coinciden");
-                                    continue;
+                                    beLogin = false;
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
