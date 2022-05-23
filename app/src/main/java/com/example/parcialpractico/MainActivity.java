@@ -59,11 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // moví esta linea para que se ejecute cundo se genera el request, porque es un
                 // hilo, por ello en el momento de evaluar la bandera belogin
-//                if(beLogin){
-//                    Intent ir = new Intent(getBaseContext(), Recursos.class);
-//                    ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
-//                    startActivity(ir);
-//                }
+
+                if(beLogin){
+                    Intent ir = new Intent(getBaseContext(), MenuActivity.class);
+                    ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(ir);
+                }
 
             }
         });
