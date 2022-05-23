@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), textUser.getText().toString(), Toast.LENGTH_SHORT).show();
                 ArrayRequest();
                 if(beLogin){
-                    Intent ir = new Intent(getBaseContext(), SecondHome.class);
+                    Intent ir = new Intent(getBaseContext(), MenuActivity.class);
                     ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(ir);
                 }
