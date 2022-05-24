@@ -40,7 +40,7 @@ public class Recursos extends AppCompatActivity {
         }
     }
 
-    public void irNoticias(View view){
+    public void irNoticia(View view){
         Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("https://tulua.univalle.edu.co/noticias"));
         startActivity(i);
     }
