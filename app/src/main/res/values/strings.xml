@@ -1,5 +1,29 @@
 <resources>
-    <string name="app_name">ParcialPractico</string>
+
+    <string name="app_name">Parcial Practico</string>
+    <!-- Sección de string de la actividad de recursos-->
+    <string name="seccion_uni">Sección Informativa Univalluna</string>
+    <string name="seccion_uni2">A continuación encontrará secciones de interés:</string>
+    <string name="back">Volver</string>
+    <string name="close">Cerrar</string>
+    <string name="noticias_btn"> Noticias</string>
+    <string name="convocatorias">Convocatorias</string>
+    <string name="biblioteca">Biblioteca Digital</string>
+    <string name="bases_de_datos">Bases de Datos Electrónicas</string>
+    <string name="investigacion">Grupos de investigación</string>
+    <string name="descripcion_noticias">Mantengase informado sobre asuntos
+        importantes de nuestra universidad.</string>
+    <string name="descripcion_conv">Consulte información sobre las convocatorias ofrecidas.</string>
+    <string name="descripcion_bib">Acceso a la Biblioteca Digital.</string>
+    <string name="descripcion_bde">Acceso al listado de las Bases de Datos Electrónicas disponibles.</string>
+    <string name="descripcion_inv">Consulte información sobre los diferentes grupos de
+        investigación de la sede. </string>
+    <!-- seccion de strings de las descripciones de imagenes-->
+    <string name="des_img1">Imagen noticias</string>
+    <string name="des_img2">Imagen convocatoria</string>
+    <string name="des_img3">Imagen bib digital</string>
+    <string name="des_img4">Imagen BD</string>
+    <string name="des_img5">Imagen CAD</string>
     <string name="usuario">Usuario</string>
     <string name="iniciar_sesion">Iniciar Sesion</string>
     <string name="escriba_su_usuario">Escriba su usuario</string>
