@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     private static final String URL1 = "https://628963f9e5e5a9ad3218cb51.mockapi.io/api/v1/users";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,5 +92,4 @@ public class MainActivity extends AppCompatActivity {
         );
         requestQueue.add(arrayRequest);
     }
-
 }
