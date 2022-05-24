@@ -14,7 +14,8 @@
         android:theme="@style/Theme.ParcialPractico">
         <activity
             android:name=".Recursos"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Recursos"/>
         <activity
             android:name=".SecondHome"
             android:exported="false" />
