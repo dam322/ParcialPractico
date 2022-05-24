@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Parcial Practico</string>
     <!-- Sección de string de la actividad de recursos-->
     <string name="seccion_uni">Sección Informativa Univalluna</string>
@@ -24,3 +25,10 @@
     <string name="des_img4">Imagen BD</string>
     <string name="des_img5">Imagen CAD</string>
 </resources>
+
+    <string name="app_name">ParcialPractico</string>
+    <string name="usuario">Usuario</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="escriba_su_usuario">Escriba su usuario</string>
+</resources>
+
