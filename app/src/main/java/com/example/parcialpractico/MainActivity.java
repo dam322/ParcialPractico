@@ -69,10 +69,14 @@ public class MainActivity extends AppCompatActivity {
                                 if(textUser.getText().toString().equals(jsonObject.getString("name")) && textPassword.getText().toString().equals(jsonObject.getString("password"))){
                                     tryText.setText("Iniciar sesion ok!");
                                     beLogin = true;
+                                    textPassword.setText("");
+                                    textUser.setText("");
                                     break;
                                 }else{
                                     tryText.setText("crendenciales no coinciden");
                                     beLogin = false;
+                                    textPassword.setText("");
+                                    textUser.setText("");
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
