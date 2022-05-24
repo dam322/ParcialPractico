@@ -18,7 +18,7 @@ public class Recursos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recursos);
     }
-
+//Editado por paola
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);

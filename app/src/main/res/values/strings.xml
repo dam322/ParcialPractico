@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Parcial Practico</string>
+    <!-- Editado por paola -->
     <!-- Sección de string de la actividad de recursos-->
     <string name="seccion_uni">Sección Informativa Univalluna</string>
     <string name="seccion_uni2">A continuación encontrará secciones de interés:</string>
