@@ -4,16 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/ParcialPractico/app/src/main/res/layout/activity_main.xml" value="0.3489583333333333" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.201" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2115" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/layout/activity_main.xml" value="0.19947916666666668" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/layout/activity_recursos.xml" value="0.25" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/layout/main_informacion.xml" value="0.22" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/menu/main_menu.xml" value="0.33" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/menu/menusssssss.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.201" />
-        <entry key="..\:/Users/Paroa/AndroidStudioProjects/ParcialPractico/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/ParcialPractico/app/src/main/res/layout/activity_second_home.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/dania/AndroidStudioProjects/ParcialPractico/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>
