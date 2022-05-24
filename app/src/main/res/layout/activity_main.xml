@@ -6,27 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="97dp"
-        android:layout_marginEnd="299dp"
-        android:text="Usuario"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/textUser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
     <EditText
         android:id="@+id/textPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="131dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginBottom="26dp"
         android:ems="10"
         android:hint="Escriba su contraseña"
         android:inputType="textPassword"
@@ -40,62 +26,63 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="269dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="265dp"
         android:text="Contraseña"
         app:layout_constraintBottom_toTopOf="@+id/textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textUser" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="203dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="135dp"
-        android:text="Parcial Practico"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="119dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="118dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="174dp"
-        android:layout_marginBottom="214dp"
+        android:layout_width="172dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="179dp"
+        android:layout_marginBottom="60dp"
         android:text="@string/iniciar_sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPassword"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textPassword" />
 
     <EditText
         android:id="@+id/textUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="137dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginEnd="127dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="@string/escriba_su_usuario"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="289dp"
+        android:text="Usuario"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/textUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
         android:id="@+id/textView4"
-        android:layout_width="329dp"
-        android:layout_height="201dp"
+        android:layout_width="292dp"
+        android:layout_height="74dp"
         android:layout_marginStart="33dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="49dp"
@@ -105,4 +92,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="290dp"
+        android:layout_height="119dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logouv2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
