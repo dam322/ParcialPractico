@@ -1,6 +1,7 @@
 package com.example.parcialpractico;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -56,7 +57,18 @@ public class MenuActivity extends AppCompatActivity {
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
     }
-
+    public void irCalculo(View view){
+        Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("https://drive.google.com/file/d/1BKlZbkNFdbzBSBEKPIMsUVFg3F5MxAze/view"));
+        startActivity(i);
+    }
+    public void irIngenieria(View view){
+        Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("https://drive.google.com/file/d/1z5hFzEskEG_fglggHGVIvH4O8v-ecPhg/view"));
+        startActivity(i);
+    }
+    public void irDeporte(View view){
+        Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("https://drive.google.com/file/d/11wfCXs5UgryXu-uh7aBFbnFUsxX0C5No/view"));
+        startActivity(i);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

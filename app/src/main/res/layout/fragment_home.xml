@@ -52,6 +52,7 @@
                         android:layout_gravity="center|top"
                         android:background="@drawable/uno"
                         android:scaleType="centerCrop"
+                        android:onClick="irCalculo"
                         tools:src="@drawable/ic_launcher_foreground" />
 
                 </FrameLayout>
@@ -65,7 +66,7 @@
                     android:id="@+id/materia1"
                     android:layout_width="69dp"
                     android:layout_height="match_parent"
-                    android:text="Calculo II"
+                    android:text="MATEMÁTICAS BÁSICAS"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
             </TableRow>
@@ -90,6 +91,7 @@
                         android:layout_gravity="center|top"
                         android:background="@drawable/dos"
                         android:scaleType="centerCrop"
+                        android:onClick="irIngenieria"
                         tools:src="@drawable/dos" />
 
                     <TextView
@@ -111,7 +113,7 @@
                     android:id="@+id/materia2"
                     android:layout_width="69dp"
                     android:layout_height="match_parent"
-                    android:text="Fundamentos de progamación"
+                    android:text="INTRODUCCIÓN A LA INGENIERÍA"
                     android:textAlignment="center"
                     android:textColor="@color/black" />
             </TableRow>
@@ -132,6 +134,7 @@
                         android:layout_gravity="center|top"
                         android:background="@drawable/tres"
                         android:scaleType="centerCrop"
+                        android:onClick="irDeporte"
                         tools:src="@drawable/tres" />
 
                 </FrameLayout>
@@ -146,7 +149,7 @@
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Desarrollo de software I"
+                    android:text="DEPORTE Y SALUD"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
