@@ -26,4 +26,7 @@
     <string name="des_img3">Imagen bib digital</string>
     <string name="des_img4">Imagen BD</string>
     <string name="des_img5">Imagen CAD</string>
+    <string name="escriba_su_contrase_a">Escriba su contraseña</string>
+    <string name="contrase">Contraseña</string>
+    <string name="logotipo_universitario">Logotipo universitario</string>
 </resources>
