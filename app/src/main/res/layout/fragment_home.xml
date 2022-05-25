@@ -170,7 +170,8 @@
                     android:id="@+id/button"
                     android:layout_width="282dp"
                     android:layout_height="match_parent"
-                    android:text="Recursos" />
+                    android:text="Recursos"
+                    android:onClick="IrRecursos"/>/>
             </TableRow>
         </TableLayout>
     </FrameLayout>
