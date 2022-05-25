@@ -179,7 +179,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView4"
+                            android:id="@+id/errorText"
                             android:layout_width="381dp"
                             android:layout_height="match_parent"
                             android:gravity="center"
