@@ -13,10 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParcialPractico">
         <activity
+
             android:name=".MenuActivity"
             android:exported="false"
             android:label="@string/title_activity_menu"
             android:theme="@style/Theme.ParcialPractico.NoActionBar" />
+        <activity
+            android:name=".Recursos"
+            android:exported="false"
+            android:label="Recursos"/>
+
         <activity
             android:name=".SecondHome"
             android:exported="false" />
