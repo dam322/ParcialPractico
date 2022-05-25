@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String URL1 = "https://628963f9e5e5a9ad3218cb51.mockapi.io/api/v1/users";
     // google
     GoogleSignInClient mGoogleSignInClient;
-    int RC_SIGN_IN = 0;
 
 
     @Override
@@ -117,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             // Signed in successfully, show authenticated UI.
+            // en caso de sea necesario se pueden extraer más cosas
+            //account.getEmail() //para email
+            //account.getId() // id de google
+            //account.getDisplayName() // nombre simplificado del usuario
+            //account.getPhotoUrl() // uwl del avatar
             updateUI(account.getDisplayName());
             //updateUI(account);
         } catch (ApiException e) {
