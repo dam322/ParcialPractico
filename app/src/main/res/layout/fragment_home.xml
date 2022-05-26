@@ -150,6 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DEPORTE Y SALUD"
+
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
@@ -174,7 +175,8 @@
                     android:layout_width="282dp"
                     android:layout_height="match_parent"
                     android:text="Recursos"
-                    android:onClick="IrRecursos"/>/>
+                    android:onClick="IrRecursos"/>
+
             </TableRow>
         </TableLayout>
     </FrameLayout>
