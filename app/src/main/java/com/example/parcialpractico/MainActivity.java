@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(String name){
         Toast.makeText(getApplicationContext(), "Hola " + name +"!! XD  ", Toast.LENGTH_SHORT).show();
-        Intent ir = new Intent(getBaseContext(), Recursos.class);
+        Intent ir = new Intent(getBaseContext(), MenuActivity.class);
         ir.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
     }
