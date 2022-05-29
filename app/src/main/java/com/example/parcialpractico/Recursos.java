@@ -30,6 +30,7 @@ public class Recursos extends AppCompatActivity {
         switch (item.getItemId()){
 
             case R.id.item_back:
+                irMenuActivity();
                 return true;
             case R.id.item_cerrar:
                 finish();
@@ -37,6 +38,12 @@ public class Recursos extends AppCompatActivity {
                 return true;
             default: return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void irMenuActivity() {
+        Intent ir = new Intent(getBaseContext(), MenuActivity.class);
+        ir.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(ir);
     }
 
     public void irNoticias(View view){
