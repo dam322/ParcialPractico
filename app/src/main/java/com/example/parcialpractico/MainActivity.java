@@ -1,7 +1,10 @@
 package com.example.parcialpractico;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         textPassword = findViewById(R.id.textPassword);
         tryText = findViewById(R.id.errorText);
         requestQueue = Volley.newRequestQueue(this);
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,14 +65,14 @@ public class MainActivity extends AppCompatActivity {
                 // moví esta linea para que se ejecute cundo se genera el request, porque es un
                 // hilo, por ello en el momento de evaluar la bandera belogin
 
-                if(beLogin){
+                /*if(beLogin){
 
 
                     Intent ir = new Intent(getBaseContext(), MenuActivity.class);
 
                     ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(ir);
-                }
+                }*/
 
             }
         });
