@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.parcialpractico">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,8 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ParcialPractico">
-        <activity
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
 
+        <activity
             android:name=".MenuActivity"
             android:exported="false"
             android:label="@string/title_activity_menu"
@@ -21,19 +26,14 @@
         <activity
             android:name=".Recursos"
             android:exported="false"
-            android:label="Recursos"/>
-
-
+            android:label="Recursos" />
         <activity
             android:name=".SecondHome"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-
             android:exported="true"
             android:theme="@style/SplashTheme">
-
- 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

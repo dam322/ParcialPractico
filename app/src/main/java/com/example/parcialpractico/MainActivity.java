@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.parcialpractico.services.MyService;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -182,4 +183,11 @@ public class MainActivity extends AppCompatActivity {
         ir.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
     }
+
+    public void iniciarServicio(View p){
+        Toast.makeText(getApplicationContext(), "Estamos yendo al servicio", Toast.LENGTH_SHORT).show();
+        Intent irService = new Intent(this, MyService.class);
+        startService(irService);
+    }
+
 }

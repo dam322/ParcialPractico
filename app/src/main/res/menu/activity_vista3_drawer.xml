@@ -14,7 +14,7 @@
             android:title="@string/menu_tareas" />
         <item
             android:id="@+id/nav_cerrar"
-            android:icon="@android:drawable/ic_lock_power_off"
+            android:icon="@android:drawable/ic_media_play"
             android:title="@string/menu_cerrar" />
     </group>
 </menu>
