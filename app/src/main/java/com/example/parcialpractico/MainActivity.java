@@ -1,11 +1,14 @@
 package com.example.parcialpractico;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
     TextView tryText;
     Boolean beLogin = false;
     RequestQueue requestQueue;
+    MyReceiver myReceiver;
+    static final String FILTER_ACTION_KEY = "any_key";
     private static final String URL1 = "https://628963f9e5e5a9ad3218cb51.mockapi.io/api/v1/users";
     // google
     GoogleSignInClient mGoogleSignInClient;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,26 +59,23 @@ public class MainActivity extends AppCompatActivity {
         textPassword = findViewById(R.id.textPassword);
         tryText = findViewById(R.id.errorText);
         requestQueue = Volley.newRequestQueue(this);
-
+        myReceiver = new MyReceiver();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getApplicationContext(), textUser.getText().toString(), Toast.LENGTH_SHORT).show();
+                Intent intentService = new Intent(getBaseContext(), ConnectivityAskService.class);
+                startService(intentService);//Inicio del IntentService
+                setReceiver();//Inicio del recibidor de señales del IntemService
                 ArrayRequest();
-
                 // moví esta linea para que se ejecute cundo se genera el request, porque es un
                 // hilo, por ello en el momento de evaluar la bandera belogin
-
                 /*if(beLogin){
-
-
                     Intent ir = new Intent(getBaseContext(), MenuActivity.class);
-
                     ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(ir);
                 }*/
-
             }
         });
         // google
@@ -137,6 +139,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Metodo para solicitar un array de tipo JSON a la API requerida, este array contendrá todos
+    //los datos de los usuarios (nombre de usuario y contraseña)
+    //y se comparan esos datos con los proporcionados en los campos de texto de la UI
     private void ArrayRequest(){
         JsonArrayRequest arrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -187,4 +192,37 @@ public class MainActivity extends AppCompatActivity {
         ir.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
     }
+
+    //Metodo donde se instancia el BraodcastReceiver para recibir señales del intent enviado al Servicio
+    private void setReceiver() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(FILTER_ACTION_KEY);
+        LocalBroadcastManager.getInstance(this).registerReceiver(myReceiver, intentFilter);
+    }
+
+    //clase privada que extiende de BroadcastReceiver, recibe la señal local provocada por el servicio
+    //y obtiene un extra booleano que es enviado desde el servicio que da la señal si hay o no
+    //conexion a internet
+    private static class MyReceiver extends BroadcastReceiver {
+        String isConnectedString;
+        private boolean isConnectedReceiver;
+        public void setIsConnected(boolean x) {
+            isConnectedReceiver = x;
+        }
+        public boolean getIsConnected() {
+            return isConnectedReceiver;
+        }
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setIsConnected(intent.getBooleanExtra("isConnected", true));
+            if(isConnectedReceiver) {
+                isConnectedString = "true";
+            } else {
+                isConnectedString = "false";
+                Toast.makeText(context.getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT).show();
+            }
+            Log.d("IsConnectedReceive on MainActivity", isConnectedString);
+        }
+    }
+
 }
