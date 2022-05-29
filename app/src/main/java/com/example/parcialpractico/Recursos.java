@@ -29,10 +29,10 @@ public class Recursos extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        Intent tryService = new Intent(this, ConnectivityAskService.class);
-        startService(tryService);
-        setReceiver();
         super.onStart();
+        Intent tryService = new Intent(this, ConnectivityAskService.class);
+        startService(tryService);//Inicio del IntentService
+        setReceiver();//Inicio del recibidor de señales del IntentService
     }
 
     @Override
