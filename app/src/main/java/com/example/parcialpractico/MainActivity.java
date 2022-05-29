@@ -184,10 +184,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(ir);
     }
 
-    public void iniciarServicio(View p){
-        Toast.makeText(getApplicationContext(), "Estamos yendo al servicio", Toast.LENGTH_SHORT).show();
-        Intent irService = new Intent(this, MyService.class);
-        startService(irService);
-    }
-
 }
