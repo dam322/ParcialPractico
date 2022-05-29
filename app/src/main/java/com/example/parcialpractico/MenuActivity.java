@@ -52,24 +52,18 @@ public class MenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
     }
 
     @Override
     protected void onStart() {
-        Intent tryService = new Intent(this, SecondConnectivityAskService.class);
-        tryService.putExtra("isConnected", isConnected);
-        startService(tryService);
-        setReceiver();
         super.onStart();
+        Intent tryService = new Intent(this, ConnectivityAskService.class);
+        tryService.putExtra("isConnected", isConnected);
+        startService(tryService);//Inicio del IntentService
+        setReceiver();//Inicio del recibidor de señales del servicio
     }
 
     public void IrRecursos(View  l){
-        if(isConnected) {
-            Log.d("Method", "IrRecursos: True");
-        } else {
-            Log.d("Method", "IrRecursos: False");
-        }
         Intent ir = new Intent(getBaseContext(), Recursos.class);
         ir.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
@@ -103,22 +97,21 @@ public class MenuActivity extends AppCompatActivity {
 
      //Metodo donde se instancia el BraodcastReceiver para recibir señales del intent enviado al Servicio
     private void setReceiver() {
-
         isConnected = myReceiver.getIsConnected();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(FILTER_ACTION_KEY);
         LocalBroadcastManager.getInstance(this).registerReceiver(myReceiver, intentFilter);
     }
 
-
+    //clase privada que extiende de BroadcastReceiver, recibe la señal local provocada por el servicio
+    //y obtiene un extra booleano que es enviado desde el servicio que da la señal si hay o no
+    //conexion a internet
     private static class MyReceiver extends BroadcastReceiver {
         String isConnectedString;
         private boolean isConnectedReceiver;
-
         public void setIsConnected(boolean x) {
             isConnectedReceiver = x;
         }
-
         public boolean getIsConnected() {
             return isConnectedReceiver;
         }
@@ -129,10 +122,13 @@ public class MenuActivity extends AppCompatActivity {
                 isConnectedString = "true";
             } else {
                 isConnectedString = "false";
-                Toast.makeText(context.getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT).show();
                 //System.exit(0);
+                Intent ir = new Intent(context.getApplicationContext(), MainActivity.class);
+                ir.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(ir);
+                Toast.makeText(context.getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT).show();
             }
-            Log.d("IsConnectedReceiver", isConnectedString);
+            Log.d("IsConnectedReceive on MenuActivity", isConnectedString);
         }
     }
 }

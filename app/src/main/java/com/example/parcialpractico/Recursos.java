@@ -2,20 +2,37 @@ package com.example.parcialpractico;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class Recursos extends AppCompatActivity {
 
+    MyReceiver myReceiver;
+    static final String FILTER_ACTION_KEY = "any_key";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recursos);
+        myReceiver = new MyReceiver();
+    }
+
+    @Override
+    protected void onStart() {
+        Intent tryService = new Intent(this, ConnectivityAskService.class);
+        startService(tryService);
+        setReceiver();
+        super.onStart();
     }
 
     @Override
@@ -34,7 +51,7 @@ public class Recursos extends AppCompatActivity {
                 return true;
             case R.id.item_cerrar:
                 finish();
-                System.exit(0);
+                irMainActivity();
                 return true;
             default: return super.onOptionsItemSelected(item);
         }
@@ -66,5 +83,47 @@ public class Recursos extends AppCompatActivity {
     public void irGrupoInv(View view){
         Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("https://tulua.univalle.edu.co/investigacion"));
         startActivity(i);
+    }
+
+    public void irMainActivity() {
+        Intent irMain = new Intent(getBaseContext(), MainActivity.class);
+        irMain.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(irMain);
+    }
+
+    //Metodo donde se instancia el BraodcastReceiver para recibir señales del intent enviado al Servicio
+    private void setReceiver() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(FILTER_ACTION_KEY);
+        LocalBroadcastManager.getInstance(this).registerReceiver(myReceiver, intentFilter);
+    }
+
+    //clase privada que extiende de BroadcastReceiver, recibe la señal local provocada por el servicio
+    //y obtiene un extra booleano que es enviado desde el servicio que da la señal si hay o no
+    //conexion a internet
+    private static class MyReceiver extends BroadcastReceiver {
+        String isConnectedString;
+        private boolean isConnectedReceiver;
+        public void setIsConnected(boolean x) {
+            isConnectedReceiver = x;
+        }
+        public boolean getIsConnected() {
+            return isConnectedReceiver;
+        }
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setIsConnected(intent.getBooleanExtra("isConnected", true));
+            if(isConnectedReceiver) {
+                isConnectedString = "true";
+            } else {
+                isConnectedString = "false";
+                //System.exit(0);
+                Intent ir = new Intent(context.getApplicationContext(), MainActivity.class);
+                ir.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(ir);
+                Toast.makeText(context.getApplicationContext(), "Check your internet connection.", Toast.LENGTH_SHORT).show();
+            }
+            Log.d("IsConnectedReceive on RecursosActivity", isConnectedString);
+        }
     }
 }
